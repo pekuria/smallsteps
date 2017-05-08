@@ -1,0 +1,8 @@
+#fos_user:
+    #resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+ 
+acme_smallsteps:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing.yml"
+ 
+
+
