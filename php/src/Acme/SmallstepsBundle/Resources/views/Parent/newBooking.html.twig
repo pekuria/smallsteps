@@ -1,0 +1,30 @@
+{% extends 'AcmeSmallstepsBundle::parentBase.html.twig' %}
+
+{% form_theme form 'AcmeSmallstepsBundle:Form:fields.html.twig' %}
+
+{% block heading %}
+    Booking creation
+{% endblock heading %}
+
+{% block content -%}              
+        <div class='table-responsive'>
+            <table id="book" class="table table-bordered table-condensed table-striped">
+                <tr>
+                    <th><input type = 'button' value = '< Previous Week' name ='previous'  onclick='previousWeek();'> </th>
+                    <th colspan='2' id="week"><div id="reservation_top_center_div">Booking for week <span id="week_number_span">{{ weekNum }}</span></div></th>
+                <th><input type = 'button' value = 'Next Week >' name ='next'  onclick="nextWeek();"></th>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-content">           
+                {% include 'AcmeSmallstepsBundle:Parent:daycare.html.twig' %}          					                
+        </div>
+        <ul>
+            <li>
+                <a href="{{ path('show_booking') }}">
+                    Back to the list
+                </a>
+            </li>
+        </ul>
+
+    {% endblock %}

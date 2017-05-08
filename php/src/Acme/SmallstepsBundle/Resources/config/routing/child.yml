@@ -1,0 +1,30 @@
+Admin_Child:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:Child:index" }
+
+Admin_Child_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:Child:show" }
+
+Admin_Child_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:Child:new" }
+
+Admin_Child_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:Child:create" }
+    requirements: { _method: post }
+
+Admin_Child_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:Child:edit" }
+
+Admin_Child_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:Child:update" }
+    requirements: { _method: post|put }
+
+Admin_Child_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:Child:delete" }
+    requirements: { _method: post|delete }

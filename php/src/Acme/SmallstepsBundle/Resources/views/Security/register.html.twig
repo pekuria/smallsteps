@@ -1,0 +1,20 @@
+{% extends "AcmeSmallstepsBundle::base.html.twig" %}
+
+{% form_theme form 'AcmeSmallstepsBundle:Form:fields.html.twig' %}
+
+
+{% block title %}Register{% endblock %}
+
+{% block errors %}
+
+{% endblock %}
+
+{% block heading %}
+    Register | <a class="btn btn-primary" href="{{ path('login') }}">Login</a>
+{% endblock heading %}
+
+{% block content %}
+   {{ form(form) }}
+{% endblock content %}
+
+

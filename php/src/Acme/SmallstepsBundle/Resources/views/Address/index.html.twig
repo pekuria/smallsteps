@@ -1,0 +1,55 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Address list
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Houseno</th>
+                    <th>Streetname</th>
+                    <th>City</th>
+                    <th>County</th>
+                    <th>Postcode</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('Admin_Address_show', { 'id': entity.id }) }}">{{ entity.houseNo }}</a></td>
+                    <td>{{ entity.streetName }}</td>
+                    <td>{{ entity.city }}</td>
+                    <td>{{ entity.county }}</td>
+                    <td>{{ entity.postCode }}</td>
+                    <td>
+<ul>
+    <li>
+        <a href="{{ path('Admin_Address_show',
+                     { 'id': entity.id }) }}" class="btn" >show</a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_Address_edit',
+                     { 'id': entity.id }) }}" >edit</a>
+    </li>
+</ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+            <ul>
+            <li>
+                <a href="{{ path('Admin_Address_new') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+        {% endblock %}

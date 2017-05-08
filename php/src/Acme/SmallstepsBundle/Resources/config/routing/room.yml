@@ -1,0 +1,30 @@
+Admin_Room:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:Room:index" }
+
+Admin_Room_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:Room:show" }
+
+Admin_Room_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:Room:new" }
+
+Admin_Room_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:Room:create" }
+    requirements: { _method: post }
+
+Admin_Room_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:Room:edit" }
+
+Admin_Room_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:Room:update" }
+    requirements: { _method: post|put }
+
+Admin_Room_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:Room:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,34 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    School
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class='table-responsive'>
+        <table class="table table-bordered table-responsive table-striped">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ entity.name }}</td>
+                </tr>               
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_School') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_School_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+    {% endblock %}

@@ -1,0 +1,62 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Setting
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class='table-responsive'>
+        <table class="table table-bordered table-responsive table-striped">
+            <tbody>
+                <tr>
+                    <th>Allowregistration</th>
+                    <td>{{ entity.allowRegistration }}</td>
+                </tr>
+                <tr>
+                    <th>Paypalemail</th>
+                    <td>{{ entity.paypalEmail }}</td>
+                </tr>
+                <tr>
+                    <th>Redirectlocation</th>
+                    <td>{{ entity.redirectLocation }}</td>
+                </tr>
+                <tr>
+                    <th>Appversion</th>
+                    <td>{{ entity.appVersion }}</td>
+                </tr>
+                <tr>
+                    <th>Noofattempts</th>
+                    <td>{{ entity.noOfAttempts }}</td>
+                </tr>
+                <tr>
+                    <th>Sitename</th>
+                    <td>{{ entity.siteName }}</td>
+                </tr>
+                <tr>
+                    <th>Adminemail</th>
+                    <td>{{ entity.adminEmail }}</td>
+                </tr>
+                <tr>
+                    <th>Bankholidays</th>
+                    <td>{{ entity.bankHolidays|date('Y-m-d H:i:s') }}</td>
+                </tr>               
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_Settings') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_Settings_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+    {% endblock %}

@@ -1,0 +1,53 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Child list
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Dob</th>
+                    <th>Nhsno</th>
+                    <th>Additional</th>                  
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('Admin_Child_show', { 'id': entity.id }) }}">{{ entity.firstname }}</a></td>
+                    <td>{{ entity.lastname }}</td>
+                    <td>{% if entity.dob %}{{ entity.dob|date('d-m-Y') }}{% endif %}</td>
+                    <td>{{ entity.nhsNo }}</td>
+                    <td>{{ entity.additional }}</td>                    
+                    <td>
+  
+        <a href="{{ path('Admin_Child_show',
+                     { 'id': entity.id }) }}" >show</a>
+   |
+        <a href="{{ path('Admin_Child_edit',
+                     { 'id': entity.id }) }}" >edit</a>
+    
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+            <ul>
+            <li>
+                <a href="{{ path('Admin_Child_new') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+        {% endblock %}

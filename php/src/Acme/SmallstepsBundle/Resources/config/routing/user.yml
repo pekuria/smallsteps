@@ -1,0 +1,30 @@
+Admin_User:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:User:index" }
+
+Admin_User_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:User:show" }
+
+Admin_User_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:User:new" }
+
+Admin_User_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:User:create" }
+    requirements: { _method: post }
+
+Admin_User_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:User:edit" }
+
+Admin_User_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:User:update" }
+    requirements: { _method: post|put }
+
+Admin_User_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:User:delete" }
+    requirements: { _method: post|delete }

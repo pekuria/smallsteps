@@ -1,0 +1,20 @@
+{% extends 'AcmeSmallstepsBundle::base.html.twig' %}
+
+{% form_theme form 'AcmeSmallstepsBundle:Form:fields.html.twig' %}
+
+{% block heading %}
+    User creation
+{% endblock heading %}
+
+{% block content -%}   
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_User') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

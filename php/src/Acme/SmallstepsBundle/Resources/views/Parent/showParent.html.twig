@@ -1,0 +1,60 @@
+    {% extends 'AcmeSmallstepsBundle::parentBase.html.twig' %}
+
+{% block heading %}
+    User
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class='table-responsive'>
+        <table class="table table-bordered table-responsive table-striped">
+            <tbody>
+                <tr>
+                    <th>Firstname</th>
+                    <td>{{ entity.firstname }}</td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>{{ entity.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>Passcode</th>
+                    <td>{{ entity.passcode }}</td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>{{ entity.username }}</td>
+                </tr>
+                
+                <tr>
+                    <th>Email</th>
+                    <td>{{ entity.email }}</td>
+                </tr>
+                <tr>
+                    <th>Contactno</th>
+                    <td>{{ entity.contactNo }}</td>
+                </tr>
+                <tr>
+                    <th>Active</th>
+                    <td>{{ entity.active }}</td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_User') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_User_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+   
+</ul>
+    {% endblock %}

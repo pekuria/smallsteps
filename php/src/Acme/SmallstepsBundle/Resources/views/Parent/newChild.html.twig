@@ -1,0 +1,20 @@
+{% extends 'AcmeSmallstepsBundle::parentBase.html.twig' %}
+
+{% form_theme form 'AcmeSmallstepsBundle:Form:fields.html.twig' %}
+
+{% block heading %}
+    Child creation
+{% endblock heading %}
+
+{% block content -%}   
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('view_children') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "AcmeSmallstepsBundle::base.html.twig" %}
+
+{% block content_header %}
+    {{ parent() }}
+    
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                                <span class="sr-only">Toggle Navigation</span>
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                                MENU
+                            </button> 
+
+    <div class="collapse navbar-collapse" id="collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="next_week_bookings.php">Home</a></li>
+            <li class="dropdown"><a href="#" data-toggle="dropdown">Configure
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('Admin_User') }}">Manage Parents Accounts</a></li>
+                    <li><a href="{{ path('Admin_Child') }}">Manage Children Accounts</a></li>  
+                    <li><a href="{{ path('Admin_PaymentMethod') }}">Manage Payment Methods</a></li>
+                    <li><a href="{{ path('Admin_Room') }}">Manage Child Rooms</a></li>  
+                    <li><a href="{{ path('Admin_Price') }}">Manage Booking Rates</a></li>
+                    <li><a href="{{ path('Admin_School') }}">Manage Schools</a></li>
+                    
+                </ul>
+            </li>
+            <li><a href="{{ path('Admin_Booking_new') }}">Make Booking</a></li> 
+            <li class="dropdown"><a href="#" data-toggle="dropdown">Reports
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('Admin_Booking') }}">View Bookings</a></li>
+                    <li><a href="{{ path('Admin_Payment') }}">View Payments</a></li>
+                    <li><a href='next_week_bookings.php'>Next Week's Booking</a></li>
+                    <li><a href='next_week_staff_ratio.php'>Next Week's Staff Ratio</a></li>                 
+                </ul>
+            </li>
+            <li id='print_btn'><a href='#'>Print</a></li>
+        </ul> 
+        <p class="navbar-text navbar-right" id="header_right">Logged in as {{ app.user.username }}
+            &nbsp;<a href="{{ path('logout') }}" class="btn btn-primary" title="Logout">Logout</a></p>                       
+    </div>             
+
+{% endblock content_header %}

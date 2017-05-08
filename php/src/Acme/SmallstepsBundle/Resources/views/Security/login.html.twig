@@ -1,0 +1,42 @@
+{% extends "AcmeSmallstepsBundle::base.html.twig" %}
+
+{% block head %}
+    {% block stylesheets %}
+        {{ parent() }}
+        {% stylesheets  'bundles/acmesmallsteps/css/signin.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+        {% endstylesheets %}
+    {% endblock stylesheets %}
+{% endblock head %}
+{% block title %}Login{% endblock %}
+
+{% block errors %}
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+{% endblock %}
+
+{% block heading %}
+    Login
+{% endblock heading %}
+
+{% block content %}
+    
+    <form action="{{ path('login_check') }}" method="post" class="form-signin">
+        <hr/>
+        <label for="user">Admin: pekuria | Password: pinches25</label>
+        <hr/>
+    <br/>
+    <label for="admin">User: lele | Password: imani</label>
+    <hr/>
+        <input type="text" class="form-control" id="username" name="_username" placeholder="username" value="{{ last_username }}" />
+        <input type="password" class="form-control" id="password" name="_password" placeholder="password" />
+        <input type="checkbox" value="remember-me" id="remember_me" name="_remember_me">
+        <label for="remember_me">Keep me logged in</label>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <input type="submit" class="btn-lg btn-block" id="login" name="login" value="Login">
+        <p><a href="{{ path('register') }}">Register</a> or <a href="{{ path('forgotPassword') }}">Forgot Password</a></p>
+    </form>
+{% endblock content %}
+
+

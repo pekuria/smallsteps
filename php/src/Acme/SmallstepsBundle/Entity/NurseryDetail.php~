@@ -1,0 +1,158 @@
+<?php
+
+namespace Acme\SmallstepsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * NurseryDetail
+ *
+ * @ORM\Table(name="nursery_detail", uniqueConstraints={@ORM\UniqueConstraint(name="booked_id", columns={"booked_id"})})
+ * @ORM\Entity(repositoryClass="Acme\SmallstepsBundle\Repository\NurseryDetailRepository")
+ */
+class NurseryDetail {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="booked_date", type="date", nullable=false)
+     */
+    private $bookedDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_time", type="time", nullable=false)
+     */
+    private $startTime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_time", type="time", nullable=false)
+     */
+    private $endTime;
+
+    /**
+     * @var \Booking
+     *
+     * @ORM\ManyToOne(targetEntity="Booking")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="booked_id", referencedColumnName="id")
+     * })
+     */
+    private $booked;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set bookedDate
+     *
+     * @param \DateTime $bookedDate
+     * @return BookingDetail
+     */
+    public function setBookedDate($bookedDate) {
+        $this->bookedDate = $bookedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get bookedDate
+     *
+     * @return \DateTime 
+     */
+    public function getBookedDate() {
+        return $this->bookedDate;
+    }  
+    
+   
+
+    /**
+     * Set booked
+     *
+     * @param \Acme\SmallstepsBundle\Entity\Booking $booked
+     * @return BookingDetail
+     */
+    public function setBooked(\Acme\SmallstepsBundle\Entity\Booking $booked = null) {
+        $this->booked = $booked;
+
+        return $this;
+    }
+
+    /**
+     * Get booked
+     *
+     * @return \Acme\SmallstepsBundle\Entity\Booking 
+     */
+    public function getBooked() {
+        return $this->booked;
+    }
+
+    public function __toString() {
+        return 'nursery';
+    }
+    
+
+    /**
+     * Set startTime
+     *
+     * @param boolean $startTime
+     * @return NurseryDetail
+     */
+    public function setStartTime($startTime)
+    {
+        $this->startTime = $startTime;
+
+        return $this;
+    }
+
+    /**
+     * Get startTime
+     *
+     * @return boolean 
+     */
+    public function getStartTime()
+    {
+        return $this->startTime;
+    }
+
+    /**
+     * Set endTime
+     *
+     * @param boolean $endTime
+     * @return NurseryDetail
+     */
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Get endTime
+     *
+     * @return boolean 
+     */
+    public function getEndTime()
+    {
+        return $this->endTime;
+    }
+}

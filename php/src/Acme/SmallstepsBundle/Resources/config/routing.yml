@@ -1,0 +1,132 @@
+AcmeSmallstepsBundle_Admin_Booking:
+        resource: "@AcmeSmallstepsBundle/Resources/config/routing/booking.yml"
+        prefix:   /Admin/Booking
+        
+acme_smallsteps_Admin_Address:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/address.yml"
+    prefix:   /Admin/Address
+
+acme_smallsteps_Admin_Payment:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/payment.yml"
+    prefix:   /Admin/Payment
+
+acme_smallsteps_Admin_Booking:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/booking.yml"
+    prefix:   /Admin/Booking
+
+acme_smallsteps_Admin_Child:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/child.yml"
+    prefix:   /Admin/Child
+
+acme_smallsteps_Admin_PaymentMethod:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/paymentmethod.yml"
+    prefix:   /Admin/PaymentMethod
+
+acme_smallsteps_Admin_Price:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/price.yml"
+    prefix:   /Admin/Price
+
+acme_smallsteps_Admin_Room:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/room.yml"
+    prefix:   /Admin/Room
+
+acme_smallsteps_Admin_Settings:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/setting.yml"
+    prefix:   /Admin/Settings
+
+acme_smallsteps_Admin_School:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/school.yml"
+    prefix:   /Admin/School
+
+acme_smallsteps_Admin_User:
+    resource: "@AcmeSmallstepsBundle/Resources/config/routing/user.yml"
+    prefix:   /Admin/User
+
+home:
+    pattern: /
+    defaults: { _controller: AcmeSmallstepsBundle:Security:login }
+    
+login:
+    pattern: /login
+    defaults: { _controller: AcmeSmallstepsBundle:Security:login }
+    
+
+login_check:
+    path: /login_check
+        
+logout:    
+    path: /logout 
+    
+resetPassword: 
+    pattern: /resetPassword
+    defaults: { _controller: AcmeSmallstepsBundle:Security:resetPassword }
+    
+forgotPassword: 
+    pattern: /forgotPassword
+    defaults: { _controller: AcmeSmallstepsBundle:Security:forgotPassword }
+
+register: 
+    pattern: /register
+    defaults: { _controller: AcmeSmallstepsBundle:Security:register }
+    
+register_create:
+    path: /register/create
+    defaults: { _controller: AcmeSmallstepsBundle:Security:create }
+
+add_child:
+    path:     Parent/createChild
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:createChild }
+
+edit_child:
+    path:     Parent/{id}/edit
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:editChild }
+    
+child_update:
+    path:     Parent/{id}/childUpdate
+    defaults: { _controller: "AcmeSmallstepsBundle:Parent:updateChild" }
+    requirements: { _method: post|put }
+
+view_children:
+    path:     Parent/viewChildren
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:viewChildren }
+
+view_parent:
+    path:     Parent/viewParent
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:indexParent }
+
+edit_parent:
+    path:     Parent/{id}/editParent
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:editParent }
+
+parent_update:
+    path:     Parent/{id}/parentUpdate
+    defaults: { _controller: "AcmeSmallstepsBundle:Parent:updateParent" }
+    requirements: { _method: post|put }
+    
+create_booking:
+    path:     Parent/createBooking
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:createBooking }
+
+daycare_booking:
+    path:     Parent/newDaycareBooking
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:newBooking }
+   
+view_booking:
+    path:     Parent/viewBooking
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:viewBooking }
+
+show_booking:
+    path:     Parent/showBooking
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:showBooking }
+
+edit_booking:
+    path:     Parent/editBooking
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:editBooking }
+
+update_booking:
+    path:     Parent/updateBooking
+    defaults: { _controller: AcmeSmallstepsBundle:Parent:updateBooking }
+
+default_security_target:
+    path: /User
+    defaults: { _controller: AcmeSmallstepsBundle:Security:index }

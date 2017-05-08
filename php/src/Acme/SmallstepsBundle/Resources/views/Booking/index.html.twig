@@ -1,0 +1,42 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Booking list
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Bookingdate</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('Admin_Booking_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.bookingDate %}{{ entity.bookingDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.status }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('Admin_Booking_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Admin_Booking_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+       
+    {% endblock %}

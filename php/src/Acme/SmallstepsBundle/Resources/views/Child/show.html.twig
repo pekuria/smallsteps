@@ -1,0 +1,50 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Child
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class='table-responsive'>
+        <table class="table table-bordered table-responsive table-striped">
+            <tbody>
+                <tr>
+                    <th>Firstname</th>
+                    <td>{{ entity.firstname }}</td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>{{ entity.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>Dob</th>
+                    <td>{{ entity.dob|date('d-m-Y') }}</td>
+                </tr>
+                <tr>
+                    <th>Nhsno</th>
+                    <td>{{ entity.nhsNo }}</td>
+                </tr>
+                <tr>
+                    <th>Additional</th>
+                    <td>{{ entity.additional }}</td>
+                </tr>               
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_Child') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_Child_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+    {% endblock %}

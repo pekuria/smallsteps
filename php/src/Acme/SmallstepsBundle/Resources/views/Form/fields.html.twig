@@ -1,0 +1,52 @@
+{% use 'form_div_layout.html.twig' with form_label as base_form_label %}
+
+{% block form_label %}
+{{ block('base_form_label') }}
+{% if required %}
+<span class="required" title="This field is required">*</span>
+{% endif %}
+{% endblock %}
+
+{% block button_widget -%}
+    {% if label is empty -%}
+               {% set label = name|humanize %}
+        {%- endif -%}
+    
+    <button type="{{ type|default('button') }}" class="btn btn-block btn-primary" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+{%- endblock button_widget %}
+
+{% block submit_widget -%}
+     <div class="col-md-12">
+            <div class="form-group">
+    {% set type = type|default('submit') %}    
+        {{- block('button_widget') -}}
+            </div>
+     </div>
+ {%- endblock submit_widget %}
+
+{% if error %}
+    {{ error.message }}
+{% endif %}
+
+{% block form_row %}
+    {% spaceless %}
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_label(form) }}
+                {{ form_errors(form) }}              
+                {{ form_widget(form, {attr:{ 'class': 'form-control'}}) }}                
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block button_row -%}
+<div>
+{{- form_widget(form) -}}
+</div>
+{%- endblock button_row %}
+
+
+
+
+

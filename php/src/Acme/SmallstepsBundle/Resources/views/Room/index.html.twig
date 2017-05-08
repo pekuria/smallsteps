@@ -1,0 +1,51 @@
+{% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Room list
+{% endblock heading %}
+
+{% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Ratio</th>
+                    <th>Max</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('Admin_Room_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                        <td>{{ entity.ratio }}</td>
+                        <td>{{ entity.max }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('Admin_Room_show',
+                     { 'id': entity.id }) }}" >show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('Admin_Room_edit',
+                     { 'id': entity.id }) }}" >edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <ul>
+        <li>
+            <a href="{{ path('Admin_Room_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+{% endblock %}

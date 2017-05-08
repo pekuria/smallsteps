@@ -1,0 +1,54 @@
+{% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% form_theme form 'AcmeSmallstepsBundle:Form:fields.html.twig' %}
+
+{% block heading %}
+    Booking creation
+{% endblock heading %}
+
+{% block content -%}
+   
+     <div class='table-responsive'>
+            <table id="book" class="table table-bordered table-condensed table-striped">
+                <tr>
+                    <th><input type = 'button' value = '< Previous Week' name ='previous'  onclick='previousWeek();'> </th>
+                    <th colspan='2' id="week"><div id="reservation_top_center_div">Booking for week <span id="week_number_span">{{ weekNum }}</span></div></th>
+                <th><input type = 'button' value = 'Next Week >' name ='next'  onclick="nextWeek();"></th>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-content"> 
+
+    {{ form_start(form)}}
+    {{ form_row(form.child) }}
+   
+    <div class='table-responsive'>
+        <table id="book" class="table table-bordered table-condensed table-striped"> 
+            <tr>
+                <th>Date</th><th>Breakfast Club</th><th>Day Slot</th><th>After School Club</th><th>Subtotal</th>
+            </tr>
+    
+            {% for i in  0..4 %}
+               <tr>
+                <td>{{ form_widget(form.bookingDetail[i].bookedDate) }} </td> 
+                <td>{{ form_widget(form.bookingDetail[i].breakfastClub) }} </td> 
+                <td>{{ form_widget(form.bookingDetail[i].dayslot) }} </td> 
+                <td>{{ form_widget(form.bookingDetail[i].afterdayClub) }} </td>  
+                <td><label id="subtotal_{{i}}"></label></td>
+            </tr>         
+            {% endfor %}
+       
+            <tr>
+                <td><input type="submit" class="btn-lg btn-block" id="acme_smallstepsbundle_booking_submit" name="acme_smallstepsbundle_booking[submit]" value="Save Booking"></td>
+                <td><input type="submit" class="btn-lg btn-block" id="add" name="add" value="Add & Continue Booking"></td>
+                <td><input type="submit" class="btn-lg btn-block" id="pay" name="pay" value="Pay"></td>
+                <td></td>
+                <td><label id='total'>Total:</label></td>
+            </tr>
+
+        </table>
+    </div>
+{{ form_end(form)}}
+
+  
+{% endblock %}

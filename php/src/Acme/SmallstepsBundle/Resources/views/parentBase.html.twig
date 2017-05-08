@@ -1,0 +1,48 @@
+{% extends "AcmeSmallstepsBundle::base.html.twig" %}
+
+{% block content_header %}
+    {{ parent() }} 
+    
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="glyphicon glyphicon-arrow-down">MENU</span>        
+    </button>     
+
+    <div class="collapse navbar-collapse" id="collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="{{ path('view_children') }}">Home</a></li>
+            <li class="dropdown"><a href="#" data-toggle="dropdown">Booking
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='{{ path('daycare_booking') }}'>Daycare Booking</a></li> 
+                    <li><a href='{{ path('view_booking') }}'>View Bookings</a></li>                                               
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#" data-toggle="dropdown">Profile
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='{{ path('view_children') }}'>Children Profile</a></li>
+                    <li><a href='{{ path('view_parent') }}'>User Profile</a></li>            
+                </ul>
+            </li>
+            <li id='print_btn'><a href='#'>Print</a></li>
+            <li class="dropdown"><a href='#' data-toggle="dropdown">Help
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='help.html'>FAQS</a></li>
+                    <li><a href='http://smallstepsdaynursery.net/fees-charges/'>Fees & Charges</a></li>
+                    <li><a href='http://smallstepsdaynursery.net/'>About US</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#" data-toggle="dropdown">Contact US
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a target="_self" href="https://www.facebook.com/smallstepsdaynursery">On Facebook</a></li>
+                    <li><a href='http://smallstepsdaynursery.net/contact-us-2/'>Web Form</a></li>
+                </ul>
+            </li>         
+        </ul> 
+        <p class="navbar-text navbar-right" id="header_right">Logged in as  &nbsp;{{ app.user.username }}
+            &nbsp;<a href="{{ path('logout') }}" class="btn btn-primary" title="Logout">Logout</a></p>                       
+    </div> <!-- navbar-collapse -->     
+{% endblock content_header %}

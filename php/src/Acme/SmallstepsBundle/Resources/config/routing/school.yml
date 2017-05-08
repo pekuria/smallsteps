@@ -1,0 +1,30 @@
+Admin_School:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:School:index" }
+
+Admin_School_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:School:show" }
+
+Admin_School_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:School:new" }
+
+Admin_School_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:School:create" }
+    requirements: { _method: post }
+
+Admin_School_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:School:edit" }
+
+Admin_School_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:School:update" }
+    requirements: { _method: post|put }
+
+Admin_School_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:School:delete" }
+    requirements: { _method: post|delete }

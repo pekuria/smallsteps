@@ -1,0 +1,22 @@
+{% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% form_theme form 'AcmeSmallstepsBundle:Form:fields.html.twig' %}
+
+{% block heading %}
+    Booking creation
+{% endblock heading %}
+
+{% block body -%}
+    <h1>Booking edit</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_Booking') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

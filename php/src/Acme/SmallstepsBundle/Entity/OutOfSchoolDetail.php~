@@ -1,0 +1,166 @@
+<?php
+
+namespace Acme\SmallstepsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OutOfSchoolDetail
+ *
+ * @ORM\Table(name="outofschool_detail", uniqueConstraints={@ORM\UniqueConstraint(name="booked_id", columns={"booked_id"})})
+ * @ORM\Entity(repositoryClass="Acme\SmallstepsBundle\Repository\OutOfSchoolDetailRepository")
+ */
+class OutOfSchoolDetail {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="booked_date", type="date", nullable=false)
+     */
+    private $bookedDate;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="am", type="boolean", nullable=true)
+     */
+    private $am;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="pm", type="boolean", nullable=true)
+     */
+    private $pm;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="extra_hours", type="integer", nullable=true)
+     */
+    private $extra_hours;
+    
+
+   
+    /**
+     * @var \Booking
+     *
+     * @ORM\ManyToOne(targetEntity="Booking")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="booked_id", referencedColumnName="id")
+     * })
+     */
+    private $booked;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set bookedDate
+     *
+     * @param \DateTime $bookedDate
+     * @return BookingDetail
+     */
+    public function setBookedDate($bookedDate) {
+        $this->bookedDate = $bookedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get bookedDate
+     *
+     * @return \DateTime 
+     */
+    public function getBookedDate() {
+        return $this->bookedDate;
+    }
+
+    
+    /**
+     * Set booked
+     *
+     * @param \Acme\SmallstepsBundle\Entity\Booking $booked
+     * @return BookingDetail
+     */
+    public function setBooked(\Acme\SmallstepsBundle\Entity\Booking $booked = null) {
+        $this->booked = $booked;
+
+        return $this;
+    }
+
+    /**
+     * Get booked
+     *
+     * @return \Acme\SmallstepsBundle\Entity\Booking 
+     */
+    public function getBooked() {
+        return $this->booked;
+    }
+
+    public function __toString() {
+        return 'out of school';
+    }   
+
+
+    /**
+     * Set am
+     *
+     * @param \DateTime $am
+     * @return OutOfSchoolDetail
+     */
+    public function setAm($am)
+    {
+        $this->am = $am;
+
+        return $this;
+    }
+
+    /**
+     * Get am
+     *
+     * @return \DateTime 
+     */
+    public function getAm()
+    {
+        return $this->am;
+    }
+
+    /**
+     * Set pm
+     *
+     * @param \DateTime $pm
+     * @return OutOfSchoolDetail
+     */
+    public function setPm($pm)
+    {
+        $this->pm = $pm;
+
+        return $this;
+    }
+
+    /**
+     * Get pm
+     *
+     * @return \DateTime 
+     */
+    public function getPm()
+    {
+        return $this->pm;
+    }
+}

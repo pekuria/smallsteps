@@ -1,0 +1,61 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Setting list
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Allowregistration</th>
+                    <th>Paypalemail</th>
+                    <th>Redirectlocation</th>
+                    <th>Appversion</th>
+                    <th>Noofattempts</th>
+                    <th>Sitename</th>
+                    <th>Adminemail</th>
+                    <th>Bankholidays</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('Admin_Settings_show', { 'id': entity.id }) }}">{{ entity.allowRegistration }}</a></td>
+                    <td>{{ entity.paypalEmail }}</td>
+                    <td>{{ entity.redirectLocation }}</td>
+                    <td>{{ entity.appVersion }}</td>
+                    <td>{{ entity.noOfAttempts }}</td>
+                    <td>{{ entity.siteName }}</td>
+                    <td>{{ entity.adminEmail }}</td>
+                    <td>{% if entity.bankHolidays %}{{ entity.bankHolidays|date('Y-m-d H:i:s') }}{% endif %}</td>                   
+                    <td>
+<ul>
+    <li>
+        <a href="{{ path('Admin_Settings_show',
+                     { 'id': entity.id }) }}" >show</a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_Settings_edit',
+                     { 'id': entity.id }) }}" >edit</a>
+    </li>
+</ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+            <ul>
+            <li>
+                <a href="{{ path('Admin_Settings_new') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+        {% endblock %}

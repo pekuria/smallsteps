@@ -1,0 +1,30 @@
+Admin_Price:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:Price:index" }
+
+Admin_Price_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:Price:show" }
+
+Admin_Price_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:Price:new" }
+
+Admin_Price_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:Price:create" }
+    requirements: { _method: post }
+
+Admin_Price_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:Price:edit" }
+
+Admin_Price_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:Price:update" }
+    requirements: { _method: post|put }
+
+Admin_Price_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:Price:delete" }
+    requirements: { _method: post|delete }

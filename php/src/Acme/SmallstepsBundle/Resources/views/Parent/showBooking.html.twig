@@ -1,0 +1,47 @@
+{% extends 'AcmeSmallstepsBundle::parentBase.html.twig' %}
+
+{% block heading %}
+    Booking
+{% endblock heading %}
+
+{% block content -%}
+
+
+    <div class='table-responsive'>
+        <table class="table table-bordered table-responsive table-striped">
+            <tbody>
+                <tr>
+
+                    <th>Bookingdate</th><th>Child</th><th>Room</th><th>Status</th> 
+                </tr>
+                {% for e in entity %}               
+                    <tr>
+                        <td>{{ e.bookingDate|date('d-m-Y') }}</td>                 
+                        <td>{{ e.child.firstname }}</td>                    
+                        <td>{{ e.room.name }}</td>             
+                        <td>{{ e.status }}</td>                    
+                    </tr>   
+
+                    {% for b in bookingDetail %} 
+                        <tr>
+                            <td>{{ b.bookedDate|date('d-m-Y') }}</td>                 
+                            <td>{{ b.breakfast_club }}</td>                    
+                            <td>{{ b.dayslot}}</td>  
+                            <td>{{ b.afterday_club }}</td> 
+                        <tr>
+                        {% endfor %}
+                    {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('view_booking') }}">
+                Back to the list
+            </a>
+        </li>
+
+    </ul>
+{% endblock %}

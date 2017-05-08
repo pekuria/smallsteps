@@ -1,0 +1,49 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    PaymentMethod list
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('Admin_PaymentMethod_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                    <td>{{ entity.description }}</td>
+                    <td>
+<ul>
+    <li>
+        <a href="{{ path('Admin_PaymentMethod_show',
+                     { 'id': entity.id }) }}" >show</a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_PaymentMethod_edit',
+                     { 'id': entity.id }) }}" >edit</a>
+    </li>
+</ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+            <ul>
+            <li>
+                <a href="{{ path('Admin_PaymentMethod_new') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+        {% endblock %}

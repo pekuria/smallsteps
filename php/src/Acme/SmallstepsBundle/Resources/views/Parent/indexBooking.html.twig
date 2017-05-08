@@ -1,0 +1,59 @@
+    {% extends 'AcmeSmallstepsBundle::parentBase.html.twig' %}
+
+{% block heading %}
+    Booking list
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Bookingdate</th>
+                    <th>Bookeddate</th>
+                    <th>Bookedstarttime</th>
+                    <th>Bookedendtime</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('Admin_Booking_show', { 'id': entity.id }) }}">{{ entity.room.name }}</a></td>
+                    <td>{{ entity.child.firstname }}</td>
+                   
+                    <td>{{ entity.status }}</td>
+                    <td>{{ entity.id }}</td>
+                    
+                    {% for b in entity.bookingDetail %}
+                        <td>{{ b.dayslot }}</td>
+                        {% endfor %}
+                    <td>
+<ul>
+    <li>
+        <a href="{{ path('show_booking',
+                     { 'id': entity.id }) }}" >show</a>
+    </li>
+    <li>
+        <a href="{{ path('edit_booking',
+                     { 'id': entity.id }) }}" >edit</a>
+    </li>
+</ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+            <ul>
+            <li>
+                <a href="{{ path('create_booking') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+        {% endblock %}

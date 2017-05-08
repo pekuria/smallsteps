@@ -1,0 +1,50 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Address
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class='table-responsive'>
+        <table class="table table-bordered table-responsive table-striped">
+            <tbody>
+                <tr>
+                    <th>Houseno</th>
+                    <td>{{ entity.houseNo }}</td>
+                </tr>
+                <tr>
+                    <th>Streetname</th>
+                    <td>{{ entity.streetName }}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{ entity.city }}</td>
+                </tr>
+                <tr>
+                    <th>County</th>
+                    <td>{{ entity.county }}</td>
+                </tr>
+                <tr>
+                    <th>Postcode</th>
+                    <td>{{ entity.postCode }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_Address') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_Address_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+    {% endblock %}

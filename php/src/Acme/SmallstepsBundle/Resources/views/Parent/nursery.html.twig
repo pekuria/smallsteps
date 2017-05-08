@@ -1,0 +1,56 @@
+{% extends 'AcmeSmallstepsBundle::parentBase.html.twig' %}
+
+{% form_theme form 'AcmeSmallstepsBundle:Form:fields.html.twig' %}
+
+{% block heading %}
+    Booking creation
+{% endblock heading %}
+
+{% block content -%}              
+        <div class='table-responsive'>
+            <table id="book" class="table table-bordered table-condensed table-striped">
+                <tr>
+                    <th><input type = 'button' value = '< Previous Week' name ='previous'  onclick='previousWeek();'> </th>
+                    <th colspan='2' id="week"><div id="reservation_top_center_div">Booking for week <span id="week_number_span">{{ weekNum }}</span></div></th>
+                <th><input type = 'button' value = 'Next Week >' name ='next'  onclick="nextWeek();"></th>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-content">           
+{{ form_start(form)}}
+{{ form_row(form.child) }}
+
+<div class='table-responsive'>
+    <table id="book" class="table table-bordered table-condensed table-striped">
+        <tr>
+            <th>Date</th><th>Start Time</th><th>Collection Time</th><th>Subtotal</th>
+        </tr>
+     
+        {% for i in  0..4 %}
+            <tr>
+                <td>{{ form_widget(form.nurseryDetail[i].bookedDate, { 'attr': {'value' : week[i] }}) }} </td> 
+                <td>{{ form_widget(form.nurseryDetail[i].startTime) }} </td>               
+                <td>{{ form_widget(form.nurseryDetail[i].endTime) }} </td> 
+                <td><label id="subtotal_{{i}}"></label></td>
+            </tr>                
+        {% endfor %}
+        <tr>
+            <td>
+                <input type="submit" class="btn-lg btn-block" id="save" name="save" value="Save Booking"></td>
+            <td><input type="submit" class="btn-lg btn-block" id="add" name="add" value="Add & Continue Booking"></td>
+            <td><input type="submit" class="btn-lg btn-block" id="pay" name="pay" value="Pay"></td>
+            <td><label id='total'>Total:</label></td>
+        </tr>
+    </table>
+</div>
+{{ form_end(form)}}
+</div>
+        <ul>
+            <li>
+                <a href="{{ path('show_booking') }}">
+                    Back to the list
+                </a>
+            </li>
+        </ul>
+
+    {% endblock %}

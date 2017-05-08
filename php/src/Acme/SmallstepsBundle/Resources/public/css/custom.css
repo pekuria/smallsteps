@@ -1,0 +1,101 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+    height: 100%;
+     /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+     /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;     
+
+}
+
+.navbar{
+    background-color: #008fd1;
+    color: #ffffff !important;  
+}
+
+.navbar-nav>li>a, .navbar-text, .navbar-brand{
+    color: #ffffff !important;
+}
+
+.navbar-nav>li>a:focus, 
+.navbar-nav>li>a:hover
+{
+    color: #000 !important;
+}
+
+article{
+    padding-top: 70px;  
+}
+
+#footer {
+    background-color: hsl(0, 0%, 96%);
+    height: 60px;
+    text-align: center;
+}
+
+
+.panel-heading, .table, th{
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+
+p#select_child{
+    margin: auto;
+}
+
+.error{
+    color: red;
+}
+
+.text-right{
+    text-align: right;
+}
+
+@media (max-width: 767px)
+{
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
+        color: #000;
+        background-color: transparent;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #fff;
+        background-color: transparent;   
+    }
+    p#title{
+        display:none;
+    }
+}
+
+
+
+@media print
+{
+    body * { visibility: hidden; }
+    article * { visibility: visible; }
+    article { 
+        position: absolute;
+        top: 10px; 
+        left: 10px;
+        margin: auto;
+        font-size: 12pt   
+    }
+}
+
+

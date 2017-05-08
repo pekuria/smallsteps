@@ -1,0 +1,30 @@
+Admin_Settings:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:Setting:index" }
+
+Admin_Settings_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:Setting:show" }
+
+Admin_Settings_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:Setting:new" }
+
+Admin_Settings_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:Setting:create" }
+    requirements: { _method: post }
+
+Admin_Settings_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:Setting:edit" }
+
+Admin_Settings_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:Setting:update" }
+    requirements: { _method: post|put }
+
+Admin_Settings_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:Setting:delete" }
+    requirements: { _method: post|delete }

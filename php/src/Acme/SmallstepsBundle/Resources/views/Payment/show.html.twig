@@ -1,0 +1,46 @@
+    {% extends 'AcmeSmallstepsBundle::adminBase.html.twig' %}
+
+{% block heading %}
+    Payment
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class='table-responsive'>
+        <table class="table table-bordered table-responsive table-striped">
+            <tbody>
+                <tr>
+                    <th>Totalhours</th>
+                    <td>{{ entity.totalHours }}</td>
+                </tr>
+                <tr>
+                    <th>Amount</th>
+                    <td>{{ entity.amount }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ entity.status }}</td>
+                </tr>
+                <tr>
+                    <th>Createdtime</th>
+                    <td>{{ entity.createdtime|date('d-m-Y H:i:s') }}</td>
+                </tr>               
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('Admin_Payment') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('Admin_Payment_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+    {% endblock %}

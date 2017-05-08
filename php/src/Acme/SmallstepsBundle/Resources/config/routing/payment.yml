@@ -1,0 +1,30 @@
+Admin_Payment:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:Payment:index" }
+
+Admin_Payment_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:Payment:show" }
+
+Admin_Payment_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:Payment:new" }
+
+Admin_Payment_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:Payment:create" }
+    requirements: { _method: post }
+
+Admin_Payment_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:Payment:edit" }
+
+Admin_Payment_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:Payment:update" }
+    requirements: { _method: post|put }
+
+Admin_Payment_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:Payment:delete" }
+    requirements: { _method: post|delete }

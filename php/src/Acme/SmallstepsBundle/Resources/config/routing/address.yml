@@ -1,0 +1,30 @@
+Admin_Address:
+    path:     /
+    defaults: { _controller: "AcmeSmallstepsBundle:Address:index" }
+
+Admin_Address_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeSmallstepsBundle:Address:show" }
+
+Admin_Address_new:
+    path:     /new
+    defaults: { _controller: "AcmeSmallstepsBundle:Address:new" }
+
+Admin_Address_create:
+    path:     /create
+    defaults: { _controller: "AcmeSmallstepsBundle:Address:create" }
+    requirements: { _method: post }
+
+Admin_Address_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeSmallstepsBundle:Address:edit" }
+
+Admin_Address_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeSmallstepsBundle:Address:update" }
+    requirements: { _method: post|put }
+
+Admin_Address_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeSmallstepsBundle:Address:delete" }
+    requirements: { _method: post|delete }

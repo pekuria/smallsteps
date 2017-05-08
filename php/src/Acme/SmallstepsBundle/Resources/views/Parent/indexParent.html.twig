@@ -1,0 +1,47 @@
+    {% extends 'AcmeSmallstepsBundle::parentBase.html.twig' %}
+
+{% block heading %}
+    User list
+{% endblock heading %}
+
+    {% block content -%}
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Passcode</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>ContactNo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="{{ path('edit_parent', { 'id': entity.id }) }}">{{ entity.firstname }}</a></td>
+                    <td>{{ entity.lastname }}</td>
+                    <td>{{ entity.passcode }}</td>
+                    <td>{{ entity.username }}</td>
+                    <td>{{ entity.email }}</td>
+                    <td>{{ entity.contactNo }}</td>                                                
+                    <td>
+<ul>
+  
+    <li>
+        <a href="{{ path('edit_parent',
+                     { 'id': entity.id }) }}" class="btn btn-default" >edit</a>
+    </li>
+</ul>
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+
+          
+        {% endblock %}
